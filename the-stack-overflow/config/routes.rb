@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
   root 'questions#index'
   get 'login' => 'sessions#new'
   get 'sign_up' => 'sessions#create'
-  get 'logout' => 'sessions#destroy'
+  destroy 'logout' => 'sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
   resources :questions do
     resources :answers
