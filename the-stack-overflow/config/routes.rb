@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'questions#index'
   get 'login' => 'sessions#new'
   get 'sign_up' => 'sessions#create'
-  destroy 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
   resources :questions do
     resources :answers
