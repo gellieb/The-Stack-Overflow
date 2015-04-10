@@ -1,9 +1,11 @@
 class QuestionController < ApplicationController
  before_action :set_question, only: [:show, :edit, :update, :destroy]
  def index
+   @questions = Question.all
  end
 
  def new
+  @question = Question.new
  end
 
  def create
@@ -16,9 +18,16 @@ class QuestionController < ApplicationController
  end
 
  def update
+   if @question.update_attributes params[:question]
+     redirect to questions_path(Question.all)
+   else
+    render :edit
+  end
  end
 
  def destroy
+   @question.destroy
+   redirect_to questions_path(Question.all)
  end
 
  private
@@ -28,6 +37,6 @@ class QuestionController < ApplicationController
    end
 
    def question_params
-    params.require(:question).permit(:)
+    params.require(:question).permit(:title, :body, :user_id)
   end
 end
