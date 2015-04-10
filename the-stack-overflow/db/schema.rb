@@ -23,13 +23,15 @@ ActiveRecord::Schema.define(version: 20150410195231) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text     "body",        null: false
+    t.text     "body",             null: false
     t.integer  "user_id"
-    t.integer  "answer_id"
-    t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "comments", ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "title",      null: false

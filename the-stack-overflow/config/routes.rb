@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+
+  root 'questions#index'
+  get 'login' => 'sessions#new'
+  get 'sign_up' => 'sessions#create'
+  get 'logout' => 'sessions#destroy'
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :questions do
+    resources :answers
+  end
+
+  resources :comments, only: [:new, :create, :update, :destroy]
+  resources :votes, only: [:new, :create, :destroy]
+
+  resources :users
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
