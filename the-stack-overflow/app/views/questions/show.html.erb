@@ -1,0 +1,10 @@
+<%= @question.title %>
+<%= @question.body %>
+<% if @question.answers.any? %>
+  <ul>
+    <% @question.answers.each do |a| %>
+      <li><%= link_to a.body  %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>
