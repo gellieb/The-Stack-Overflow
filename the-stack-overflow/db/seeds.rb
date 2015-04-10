@@ -18,8 +18,3 @@ a1 = Answer.create(body: "You need it. Just trust. And... stackoverflow it.", us
 
 a2 = Answer.create(body: "Steak. Medium rare. You need it. Just trust.", user: angel, question: q2)
 a3 = Answer.create(body: "TOFU Steak. Medium rare. You need it. Just trust.", user: natalia, question: q2)
-
-
-angel.questions.first.votes << Vote.create(user: nata)
-nata.questions.first.votes << Vote.create(user: steph)
-steph.questions.first.votes << Vote.create(user: angel)
