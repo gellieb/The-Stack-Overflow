@@ -24,7 +24,14 @@ class Question < ActiveRecord::Base
   def best_answer
     self.answers.find_by(best: true)
   end
+<<<<<<< HEAD
 
 >>>>>>>  add question count to view, use pluralize method
+=======
+  def answer_sort
+    best = self.answers.delete(best_answer)
+    self.answers.unshift(best)
+  end
+>>>>>>> edit
 
 end

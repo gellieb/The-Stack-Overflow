@@ -14,6 +14,10 @@
        <% end %>
        <% if question.votes.where(user_id: current_user.id).count == 0 %>
         <%= link_to "like!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
+<<<<<<< HEAD
+=======
+        <%= link_to "dislike!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
+>>>>>>> edit
         <% end %>
          </li>
     <% end %>
