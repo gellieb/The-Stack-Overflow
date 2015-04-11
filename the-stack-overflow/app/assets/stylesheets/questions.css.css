@@ -63,6 +63,10 @@
   font-size: 30px;
   color: ;
 }
+#questions p {
+  text-indent: 30px;
+  font-size: 19px;
+}
 span {
   font-size: 15px;
   margin-right: 10px;
