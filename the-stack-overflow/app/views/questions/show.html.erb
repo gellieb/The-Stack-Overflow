@@ -11,12 +11,6 @@
     </ul>
     <% end %>
   <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
+  <BR>
 
-  <% if @question.answers.any? %>
-    <ul>
-      <% @question.answers.each do |a| %>
-        <li><%= link_to a.body  %>
-      </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render partial: '/answers/answer', collection: @question.answers %>

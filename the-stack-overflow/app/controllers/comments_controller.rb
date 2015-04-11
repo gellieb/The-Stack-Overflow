@@ -7,7 +7,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(question_params)
     if @comment.save
-      redirect_to @comment.commentable
+      if @comment.commentable.class == 'Question'
+        redirect_to @comment.commentable
+      else
+        redirect_to @comment.commentable.question
+      end
     else
       [500, "UHOH! ERROR!"]
     end

@@ -1,0 +1,15 @@
+<%= answer.body %>
+<BR>
+<%= link_to "comment", new_comment_path(:parent => answer.class, :id => answer.id) %>
+<BR>
+<ul>
+  <% if answer.comments.any? %>
+    <% answer.comments.each do |comment| %>
+    <li>
+      <%= comment.body %><br>
+      <%= comment.user.username %>
+    </li>
+    <% end %>
+  <% end %>
+</ul>
+
