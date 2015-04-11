@@ -1,7 +1,13 @@
-<ul>
-<% @questions.each do |question| %>
-  <li>
-    <%= link_to question.title , question %>
-  </li>
-  <% end %>
-</ul>
+
+<div id="questions">
+  <h3>Top questions</h3>
+  <ul>
+  <% @questions.each do |question| %>
+    <li>
+     <span><%= question.votes.count%> votes</span><span><%= question.answers.count%> answers</span><%= link_to question.title , question %></br>
+     <%= link_to "vote!", new_vote_path%>
+         </li>
+    <% end %>
+  </ul>
+  <%= link_to "New Question", new_question_path %>
+</div>

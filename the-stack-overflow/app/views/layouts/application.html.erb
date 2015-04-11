@@ -19,9 +19,12 @@
 </head>
 <body>
   <header>
-    <%= render 'layouts/navbar'%>
+  <%= render 'layouts/navbar'%>
+    <div id="main-div" >
+    <%= render 'layouts/another_nav' %>
  </header>
  <%= yield %>
+</div>
 
 </body>
 </html>
