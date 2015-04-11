@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def new
-
+    @parent = params[:question]
   end
 
   def create
