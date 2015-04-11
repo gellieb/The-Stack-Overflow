@@ -3,7 +3,10 @@
 
   <h2><%= @question.title %></h2>
   <p><%= @question.body %></p>
-  <%= link_to "edit", edit_question_path(@question), class: "buttons" %>
+  <% if @question.user == current_user %>
+    <%= link_to "edit", edit_question_path(@question), class: "own-buttons" %>
+    <%=link_to "delete", @question,method: :delete, data: { confirm: "Are you sure?"}, class: "own-buttons" %>
+    <% end %>
 
   <% if @question.comments.any? %>
     <ul>
