@@ -1,5 +1,6 @@
 #main-div {
   margin: 30px;
+  /*border: 2px solid black;*/
 }
 #logo {
   display: inline-block;
@@ -46,7 +47,8 @@
   width: 200px;
 }
 #questions {
-  position: absolute;
+  margin: 40px;
+  clear: both;
   top: 250px;
   display: block;
   font-size: 30px;
@@ -61,7 +63,23 @@
   font-size: 30px;
   color: ;
 }
+#questions p {
+  text-indent: 30px;
+  font-size: 19px;
+}
 span {
   font-size: 15px;
   margin-right: 10px;
 }
+.form-cl {
+  clear: both;
+}
+.buttons {
+  font-size: 17px;
+  }
+  .answers-block {
+    border: 2px solid #C5CECE;
+  }
+  .answers-block a {
+    font-size: 19px;
+  }
