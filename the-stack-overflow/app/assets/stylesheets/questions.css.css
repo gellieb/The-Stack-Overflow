@@ -1,5 +1,6 @@
 #main-div {
   margin: 30px;
+  /*border: 2px solid black;*/
 }
 #logo {
   display: inline-block;
@@ -46,7 +47,8 @@
   width: 200px;
 }
 #questions {
-  position: absolute;
+
+  clear: both;
   top: 250px;
   display: block;
   font-size: 30px;
@@ -64,4 +66,7 @@
 span {
   font-size: 15px;
   margin-right: 10px;
+}
+.form-cl {
+  clear: both;
 }
