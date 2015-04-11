@@ -5,7 +5,13 @@
   <% @questions.each do |question| %>
     <li>
      <span><%= question.votes.count%> votes</span><span><%= question.answers.count%> answers</span><%= link_to question.title , question %></br>
-     <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id) %>
+     <% if question.user.id == session[:user_id] %>
+
+       <%=link_to "delete", question,method: :delete, data: { confirm: "Are you sure?"}, class: "buttons" %>
+       <% end %>
+       <% if question.votes.where(user_id: current_user.id).count == 0 %>
+        <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
+        <% end %>
          </li>
     <% end %>
   </ul>

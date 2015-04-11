@@ -1,8 +1,10 @@
 
+<div id="questions">
 
   <h2><%= @question.title %></h2>
   <p><%= @question.body %></p>
-  <%= link_to "edit", edit_question_path(@question) %>
+  <%= link_to "edit", edit_question_path(@question), class: "buttons" %>
+
   <% if @question.comments.any? %>
     <ul>
       <% @question.comments.each do |c| %>
@@ -13,4 +15,11 @@
   <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
   <BR>
 
+<% if @question.answers.any? %>
+ <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
+    <ul class="answers-block">
   <%= render partial: '/answers/answer', collection: @question.answers %>
+</ul>
+<% end %>
+</div>
+
