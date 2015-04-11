@@ -4,7 +4,6 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
-
   # def self.sort_by_votes
   #   order('votes asc')
   # end
@@ -16,5 +15,6 @@ class Question < ActiveRecord::Base
     best = self.answers.delete(best_answer)
     self.answers.unshift(best)
   end
+
 
 end
