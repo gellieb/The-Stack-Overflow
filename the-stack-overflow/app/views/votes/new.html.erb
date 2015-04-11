@@ -1,0 +1,6 @@
+<%= form_for(:vote, url:{action: 'create'}) do |f|%>
+  <%= f.hidden_field :votable_type, value: params[:parent]%>
+  <%= f.hidden_field :votable_id, value: params[:id]%>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit "Vote!" %>
+<%end%>
