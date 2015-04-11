@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def index
     @question = Question.find_by(id: params[:question_id])
-    @answers = question.answers
+    @answers = @question.answers
   end
 
   def show
