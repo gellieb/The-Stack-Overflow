@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
   def create
     @user = current_user
     @question = Question.find_by(id: params[:question_id])
-    @new_answer = Answer.new(body: answer_params, user: @user, question: question)
+    @new_answer = Answer.new(body: answer_params, user: @user, question: @question)
     if @new_answer.save
       redirect_to @question
     else

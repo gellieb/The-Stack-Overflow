@@ -1,0 +1,4 @@
+<%= form_for :answers, url: {action: "create"}, html: {class: "user_form"} do |f| %>
+  <%= f.text_field :body, class: 'form-control'%><BR>
+  <%= f.submit "Submit" %>
+<% end %>
