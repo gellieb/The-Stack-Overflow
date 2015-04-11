@@ -4,4 +4,9 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
+  # def self.sort_by_votes
+  #   order('votes asc')
+  # end
+
+
 end

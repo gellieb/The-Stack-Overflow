@@ -1,0 +1,11 @@
+<div id="user-questions">
+  <ul>
+    <% @user.questions.each do |question| %>
+    <li>
+      <span><%= question.votes.count%> votes</span><span><%= question.answers.count%> answers</span><%= link_to question.title , question %></br>
+     <%= link_to "vote!", new_vote_path%>
+    </li>
+    <% end %>
+  </ul>
+</div>
+

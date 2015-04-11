@@ -5,7 +5,7 @@
   <% @questions.each do |question| %>
     <li>
      <span><%= question.votes.count%> votes</span><span><%= question.answers.count%> answers</span><%= link_to question.title , question %></br>
-     <%= link_to "vote!", new_vote_path%>
+     <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id) %>
          </li>
     <% end %>
   </ul>

@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-  # belongs_to :question
-  # belongs_to :answer
   belongs_to :user
   belongs_to :commentable, polymorphic: true
   has_many :votes, as: :votable
