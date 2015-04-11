@@ -1,15 +1,11 @@
-<%= answer.body %>
+<%= answer.body %><BR>
+Authored by: <%= answer.user.username %>
 <BR>
 <%= link_to "comment", new_comment_path(:parent => answer.class, :id => answer.id) %>
 <BR>
 <ul>
   <% if answer.comments.any? %>
-    <% answer.comments.each do |comment| %>
-    <li>
-      <%= comment.body %><br>
-      <%= comment.user.username %>
-    </li>
-    <% end %>
+    <%= render partial: '/comments/comment', collection: answer.comments %>
   <% end %>
 </ul>
 

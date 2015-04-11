@@ -12,7 +12,8 @@
      <% end %>
     </ul>
     <% end %>
-  <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
+  <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %><br>
+  <%= link_to "add answer", new_question_answer_path(question_id: @question) %>
   <BR>
 
 <% if @question.answers.any? %>
