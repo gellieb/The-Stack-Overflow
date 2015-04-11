@@ -1,0 +1,67 @@
+#main-div {
+  margin: 30px;
+}
+#logo {
+  display: inline-block;
+  float: left;
+  width: 35%;
+  /*border: 2px solid black;*/
+}
+#logo a {
+  color: white;
+}
+#navmenu {
+  display: inline-block;
+  width: 50%;
+  /*border: 2px solid black;*/
+}
+#navmenu li{
+  display: inline;
+  margin-left: 15px;
+  font-size: 20px;
+}
+#navmenu a {
+  background: grey;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  color: white;
+  font-size: 16px;
+}
+#navmenu a:hover {
+  background: orange;
+  text-decoration: none;
+}
+#logo a {
+  height: 100px;
+  width: 200px;
+  display: block;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-image: url("http://cdn.sstatic.net/stackoverflow/img/sprites.svg?v=1bc6a0c03b68");
+}
+.image-st {
+  height: 100px;
+  width: 200px;
+}
+#questions {
+  position: absolute;
+  top: 250px;
+  display: block;
+  font-size: 30px;
+}
+#questions ul {
+  list-style-type: none;
+}
+#questions a:hover {
+  text-decoration: none;
+}
+#questions h3 {
+  font-size: 30px;
+  color: ;
+}
+span {
+  font-size: 15px;
+  margin-right: 10px;
+}

@@ -9,6 +9,13 @@ class QuestionsController < ApplicationController
  end
 
  def create
+   @question = Question.new(question_params)
+   @question.user_id = session[:user_id]
+   if @question.save
+     redirect_to questions_path
+   else
+    redirect back
+  end
  end
 
  def show
@@ -18,7 +25,6 @@ class QuestionsController < ApplicationController
  end
 
  def update
-   p params[:question]
    if @question.update question_params
      redirect_to question_path(@question)
    else
@@ -38,7 +44,6 @@ class QuestionsController < ApplicationController
    end
 
    def question_params
-     p params[:question]
     params.require(:question).permit(:title, :body, :user_id)
   end
 end

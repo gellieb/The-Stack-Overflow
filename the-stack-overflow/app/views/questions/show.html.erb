@@ -1,19 +1,22 @@
-<h2><%= @question.title %></h2>
-<p><%= @question.body %></p>
-<% if @question.comments.any? %>
-  <ul>
-    <% @question.comments.each do |c| %>
-      <li><%= link_to c.body %></li>
-   <% end %>
-  </ul>
-  <% end %>
-  <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
 
-<% if @question.answers.any? %>
-  <ul>
-    <% @question.answers.each do |a| %>
-      <li><%= link_to a.body  %>
-    </li>
+
+  <h2><%= @question.title %></h2>
+  <p><%= @question.body %></p>
+  <%= link_to "edit", edit_question_path(@question) %>
+  <% if @question.comments.any? %>
+    <ul>
+      <% @question.comments.each do |c| %>
+        <li><%= link_to c.body %></li>
+     <% end %>
+    </ul>
     <% end %>
-  </ul>
-<% end %>
+    <%= link_to "comment", new_comment_path(:question_id => @question.id) %>
+
+  <% if @question.answers.any? %>
+    <ul>
+      <% @question.answers.each do |a| %>
+        <li><%= link_to a.body  %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>

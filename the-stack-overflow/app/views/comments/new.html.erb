@@ -11,3 +11,4 @@ UpstacK the Komment:
 <%= params[:parent]%>
 <%= params[:id]%>
 
+  <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
