@@ -1,14 +1,7 @@
 <%= form_for :comments, url: {action: "create"}, html: {class: "user_form"} do |f| %>
-
-  StacK Komment: <%= f.text_field :body, class: 'form-control'%><BR>
-  <%= f.submit "Create" %>
+<%= f.hidden_field :commentable_type, value: params[:parent] %>
+<%= f.hidden_field :commentable_id, value: params[:id] %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+  Comment: <%= f.text_field :body, class: 'form-control'%><BR>
+  <%= f.submit "Submit" %>
 <% end %>
-
-<%= form_for :comments, url: {action: "create"}, html: {class: "comment_vote_radio"} do |f| %>
-
-UpstacK the Komment:
-
-<%= params[:parent]%>
-<%= params[:id]%>
-
-  <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
