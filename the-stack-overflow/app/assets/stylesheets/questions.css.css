@@ -1,7 +1,9 @@
 #main-div {
+  clear: both;
   margin: 30px;
   /*border: 2px solid black;*/
 }
+
 #logo {
   display: inline-block;
   float: left;
@@ -83,3 +85,10 @@ span {
   .answers-block a {
     font-size: 19px;
   }
+.own-buttons {
+  color: red;
+  font-size: 17px;
+}
+.make-me-black {
+  color: black;
+}
