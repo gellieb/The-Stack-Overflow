@@ -18,8 +18,13 @@
 
   <div class="field">
     <%= f.label :body %><br>
-    <%= f.text_area_tag :body %>
+    <%= f.text_area(:body, size: '50x10') %>
   </div>
+
+  <div class="field">
+    <%= f.hidden_field :user_id, :value => @question.user_id %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

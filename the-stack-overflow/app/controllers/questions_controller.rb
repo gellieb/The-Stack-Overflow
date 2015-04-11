@@ -18,8 +18,9 @@ class QuestionsController < ApplicationController
  end
 
  def update
-   if @question.update_attributes params[:question]
-     redirect to questions_path(Question.all)
+   p params[:question]
+   if @question.update question_params
+     redirect_to question_path(@question)
    else
     render :edit
   end
@@ -37,6 +38,7 @@ class QuestionsController < ApplicationController
    end
 
    def question_params
+     p params[:question]
     params.require(:question).permit(:title, :body, :user_id)
   end
 end
