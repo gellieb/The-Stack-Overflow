@@ -7,7 +7,6 @@ class Question < ActiveRecord::Base
   # def self.sort_by_votes
   #   order('votes asc')
   # end
-
   def best_answer
     self.answers.find_by(best: true)
   end
@@ -15,6 +14,5 @@ class Question < ActiveRecord::Base
     best = self.answers.delete(best_answer)
     self.answers.unshift(best)
   end
-
 
 end

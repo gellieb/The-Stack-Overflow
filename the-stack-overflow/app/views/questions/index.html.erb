@@ -14,14 +14,7 @@
        <% end %>
        <% if question.votes.where(user_id: current_user.id).count == 0 %>
         <%= link_to "like!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
-
         <% end %>
-
-=======
-     <span><%= question.votes.count%> votes</span><span><%= question.answers.count%> answers</span><%= link_to question.title , question %></br>
-
-     <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id) , class: "buttons" %>
->>>>>>> edit views
          </li>
     <% end %>
   </ul>
