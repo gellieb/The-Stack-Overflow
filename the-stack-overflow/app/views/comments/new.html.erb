@@ -2,6 +2,6 @@
 <%= f.hidden_field :commentable_type, value: params[:parent] %>
 <%= f.hidden_field :commentable_id, value: params[:id] %>
 <%= f.hidden_field :user_id, value: current_user.id %>
-  Comment: <%= f.text_field :body, class: 'form-control'%><BR>
+  <%= f.text_field :body, class: 'form-control'%><BR>
   <%= f.submit "Submit" %>
 <% end %>
