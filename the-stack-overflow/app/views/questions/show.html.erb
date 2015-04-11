@@ -18,6 +18,7 @@
   <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
   <BR>
 
+<<<<<<< HEAD
 <% if @question.answers.any? %>
  <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
     <ul class="answers-block">
@@ -25,4 +26,9 @@
 </ul>
 <% end %>
 </div>
+=======
+
+  <%= render partial: '/answers/answer', collection: @question.answers %>
+
+>>>>>>> work on css for index
 
