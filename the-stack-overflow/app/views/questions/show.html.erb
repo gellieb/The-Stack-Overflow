@@ -1,6 +1,5 @@
 <h2><%= @question.title %></h2>
 <p><%= @question.body %></p>
-<%= link_to "edit", edit_question_path(@question) %>
 <% if @question.comments.any? %>
   <ul>
     <% @question.comments.each do |c| %>
