@@ -23,6 +23,7 @@
   <BR>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <% if @question.answers.any? %>
  <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
     <ul class="answers-block">
@@ -51,5 +52,13 @@
   <% end %>
 >>>>>>> edit views
 
+=======
+<% if @question.answers.any? %>
+ <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
+    <ul class="answers-block">
+  <%= render partial: '/answers/answer', collection: @question.answers %>
+</ul>
+<% end %>
+>>>>>>>  add question count to view, use pluralize method
 </div>
->>>>>>> edit views
+
