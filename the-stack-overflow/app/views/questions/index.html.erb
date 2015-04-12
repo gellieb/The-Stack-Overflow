@@ -4,6 +4,7 @@
   <ul>
   <% @questions.each do |question| %>
     <li>
+
      <span><%= pluralize(question.votes.count, "vote") %></span><span><%= pluralize(question.answers.count, "answer") %></span><%= link_to question.title , question %></br>
      <% if question.user.id == session[:user_id] %>
 
@@ -12,7 +13,6 @@
        <% end %>
        <% if question.votes.where(user_id: current_user.id).count == 0 %>
         <%= link_to "like!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
-
         <% end %>
          </li>
     <% end %>
