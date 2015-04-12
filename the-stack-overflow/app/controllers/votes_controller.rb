@@ -15,6 +15,7 @@ class VotesController < ApplicationController
   end
 
   def destroy
+    # if @vote.status
 
   end
 

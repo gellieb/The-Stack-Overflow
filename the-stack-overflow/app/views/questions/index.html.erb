@@ -2,19 +2,33 @@
 <div id="questions">
   <h3>Top questions</h3>
   <ul>
-  <% @questions.each do |question| %>
+    <% @questions.each do |question| %>
     <li>
      <span><%= pluralize(question.votes.count, "vote")%></span><span><%= pluralize(question.answers.count, "answer") %></span><%= link_to question.title , question %></br>
-     <% if question.user && question.user.id == session[:user_id] %>
 
-       <%=link_to "delete", question,method: :delete, data: { confirm: "Are you sure?"}, class: "buttons" %>
-       <% end %>
-        <% if question.votes.where(user_id: current_user.id).count == 0 %>
-        <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
-        <%= link_to "downvote", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
-        <% end %>
-         </li>
-    <% end %>
-  </ul>
-  <%= link_to "New Question", new_question_path %>
+     <% if question.user && question.user.id == session[:user_id] %>
+     <%=link_to "delete", question,method: :delete, data: { confirm: "Are you sure?"}, class: "buttons" %>
+
+     <% elsif question.votes.include?(Vote.find_by(user: current_user)) %>
+     <%= link_to "downvote", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
+
+     <%else%>
+     <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
+     <% end %>
+   </li>
+   <%end%>
+ </ul>
+ <%= link_to "New Question", new_question_path %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+<%# if question.votes.where(user_id: current_user.id).count == 0 %>
