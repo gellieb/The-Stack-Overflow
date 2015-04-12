@@ -9,8 +9,8 @@
      <% if question.user && question.user.id == session[:user_id] %>
      <%=link_to "delete", question,method: :delete, data: { confirm: "Are you sure?"}, class: "buttons" %>
 
-     <% elsif question.votes.include?(Vote.find_by(user: current_user)) %>
-     <%= link_to "downvote", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
+     <% elsif question.voted?(current_user) %>
+     <%= link_to "downvote!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
 
      <%else%>
      <%= link_to "vote!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
