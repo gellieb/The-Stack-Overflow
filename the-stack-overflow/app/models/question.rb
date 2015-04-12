@@ -4,6 +4,7 @@ class Question < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
+  validates :user_id, presence: true
 
   def best_answer
     self.answers.find_by(best: true)
