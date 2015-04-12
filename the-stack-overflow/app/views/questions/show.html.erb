@@ -3,6 +3,7 @@
 
   <h2><%= @question.title %></h2>
   <p><%= @question.body %></p>
+
   <% if @question.user == current_user %>
     <%= link_to "edit", edit_question_path(@question), class: "own-buttons" %>
     <%=link_to "delete", @question,method: :delete, data: { confirm: "Are you sure?"}, class: "own-buttons" %>
@@ -18,7 +19,6 @@
   <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
   <BR>
   <%= link_to "add answer", new_question_answer_path(question_id: @question) %>
-
 <% if @question.answers.any? %>
  <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
     <ul class="answers-block">
