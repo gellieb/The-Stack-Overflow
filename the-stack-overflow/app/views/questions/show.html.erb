@@ -17,6 +17,7 @@
     <% end %>
   <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
   <BR>
+  <%= link_to "add answer", new_question_answer_path(question_id: @question) %>
 
 <% if @question.answers.any? %>
  <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
