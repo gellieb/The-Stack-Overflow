@@ -9,7 +9,6 @@
     <%=link_to "delete", @question,method: :delete, data: { confirm: "Are you sure?"}, class: "own-buttons" %>
     <% end %>
 
-
   <% if @question.comments.any? %>
     <ul>
       <% @question.comments.each do |c| %>
@@ -20,7 +19,6 @@
   <%= link_to "comment", new_comment_path(:parent => @question.class, :id => @question.id) %>
   <BR>
   <%= link_to "add answer", new_question_answer_path(question_id: @question) %>
-
 <% if @question.answers.any? %>
  <h3><%= pluralize(@question.answers.count,  "answer" ) %></h3>
     <ul class="answers-block">

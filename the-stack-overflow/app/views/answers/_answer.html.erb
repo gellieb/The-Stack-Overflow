@@ -1,7 +1,5 @@
 
 <%= answer.body %><BR>
-Authored by: <%= answer.user.username %>
-
 
 <BR>
 <%= link_to "comment", new_comment_path(:parent => answer.class, :id => answer.id) %>
