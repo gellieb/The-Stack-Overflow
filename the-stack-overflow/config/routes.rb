@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root 'questions#index'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
+  get 'login'   => 'sessions#new'
+  post 'login'   => 'sessions#create'
   get 'logout'  => 'sessions#destroy'
   get 'signup' => 'users#new'
   post 'signup' => 'users#create'
