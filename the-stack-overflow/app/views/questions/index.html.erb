@@ -4,16 +4,13 @@
   <ul>
   <% @questions.each do |question| %>
     <li>
-
      <span><%= pluralize(question.votes.count, "vote") %></span><span><%= pluralize(question.answers.count, "answer") %></span><%= link_to question.title , question %></br>
      <% if question.user.id == session[:user_id] %>
 
        <%=link_to "delete", question,method: :delete, data: { confirm: "Are you sure?"}, class: "own-buttons" %>
        <%= link_to "edit", edit_question_path(question),  class: "own-buttons" %>
        <% end %>
-       <% if question.votes.where(user_id: current_user.id).count == 0 %>
-        <%= link_to "like!", new_vote_path(:parent => question.class, :id => question.id), class: "buttons" %>
-        <% end %>
+
          </li>
     <% end %>
   </ul>
