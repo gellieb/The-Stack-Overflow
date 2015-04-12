@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(question_params)
     if @comment.save
-      if @comment.commentable.class == 'Question'
+      if @comment.commentable.class.to_s == 'Question'
         redirect_to @comment.commentable
       else
         redirect_to @comment.commentable.question
