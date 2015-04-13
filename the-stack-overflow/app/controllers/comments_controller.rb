@@ -1,20 +1,12 @@
 class CommentsController < ApplicationController
-
   def new
     @parent = params[:question]
   end
 
   def create
     @comment = Comment.new(question_params)
-    if @comment.save
-      if @comment.commentable.class.to_s == 'Question'
-        redirect_to @comment.commentable
-      else
-        redirect_to @comment.commentable.question
-      end
-    else
-      [500, "UHOH! ERROR!"]
-    end
+    @comment.save!
+    redirect_to @comment.commentable.question
   end
 
   private

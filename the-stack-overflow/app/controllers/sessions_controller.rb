@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = 'Invalid username/password combination' # Not quite right!
-      render 'new'
+      render 'new', status: :unauthorized
     end
   end
 
