@@ -11,12 +11,8 @@ class AnswersController < ApplicationController
   def create
     @user = current_user
     @question = Question.find_by(id: params[:question_id])
-    @new_answer = Answer.new(body: answer_params[:body], user: @user, question: @question)
-    if @new_answer.save
-      redirect_to @question
-    else
-      [500, "YOU MESSED UP!"]
-    end
+    Answer.create!(body: answer_params[:body], user: @user, question: @question)
+    redirect_to @question
   end
 
   private
@@ -24,5 +20,4 @@ class AnswersController < ApplicationController
   def answer_params
     params.require(:answers).permit(:body)
   end
-
 end

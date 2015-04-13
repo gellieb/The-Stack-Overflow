@@ -1,49 +1,49 @@
 class QuestionsController < ApplicationController
- before_action :set_question, only: [:show, :edit, :update, :destroy]
- def index
-   @questions = Question.all
- end
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
- def new
-  @question = Question.new
- end
-
- def create
-   @question = Question.new(question_params)
-   @question.user_id = session[:user_id]
-   if @question.save
-     redirect_to questions_path
-   else
-    redirect back
+  def index
+    @questions = Question.all
   end
- end
 
- def show
- end
-
- def edit
- end
-
- def update
-   if @question.update question_params
-     redirect_to question_path(@question)
-   else
-    render :edit
+  def new
+    @question = Question.new
   end
- end
 
- def destroy
-   @question.destroy
-   redirect_to questions_path(Question.all)
- end
+  def create
+    @question = Question.new(question_params.merge(user: current_user))
+    # Ideally, I think it would be even better to move this logic into the Rails
+    # error handling layer.
+    return render(:edit, status: :bad_request) unless @question.valid?
+    @question.save!
+    redirect_to questions_path
+  end
 
- private
+  def show
+  end
 
-   def set_question
-     @question = Question.find params[:id]
-   end
+  def edit
+  end
 
-   def question_params
+  def update
+    if @question.update question_params
+      redirect_to @question
+    else
+      render :edit, status: :bad_request
+    end
+  end
+
+  def destroy
+    @question.destroy
+    redirect_to questions_path
+  end
+
+  private
+
+  def set_question
+    @question = Question.find params[:id]
+  end
+
+  def question_params
     params.require(:question).permit(:title, :body, :user_id)
   end
 end
